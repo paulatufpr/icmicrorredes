@@ -5,6 +5,7 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 
 ## Dependencias
 ```bash
+Python 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] on linux
 pip install python-can
 pip install sqlite3 # não precisei rodar no linux porém talvez seja um problema no windows.
 ```
