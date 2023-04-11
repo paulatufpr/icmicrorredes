@@ -7,7 +7,11 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 
 
 # leitor_BMS
--  Está bem comentado, apenas o que falta para implementação é o ajuste ao inves de usar o socketCAN o programa será rodado em uma maquina windows o que envolve mudar os parametros na variavel b1(channel e interface) além da instalação de drivers compatíveis com os leitores CAN do laborátório.
+-  Está bem comentado, apenas o que falta para implementação é o ajuste ao inves de usar o socketCAN o programa será rodado em uma maquina windows o que envolve mudar os parametros na variavel 
+```python
+b1 = can.Bus(channel='vcan0', interface='socketcan')
+```
+além da instalação de drivers compatíveis com os leitores CAN do laborátório.
 
 - Mais sobre esses drivers e parametros na documentação do python-can(recomendo tentativa de uso do peak-can pois temos esse no laboratório e os drivers são oficiais diferentemente da gambiarra que é necessária para usar o CANdapter): https://python-can.readthedocs.io/en/stable/interfaces.html
   
