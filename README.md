@@ -11,7 +11,7 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 ```python
 b1 = can.Bus(channel='vcan0', interface='socketcan')
 ```
-além da instalação de drivers compatíveis com os leitores CAN do laborátório.
+- Além da instalação de drivers compatíveis com os leitores CAN do laborátório.
 
 - Mais sobre esses drivers e parametros na documentação do python-can(recomendo tentativa de uso do peak-can pois temos esse no laboratório e os drivers são oficiais diferentemente da gambiarra que é necessária para usar o CANdapter): https://python-can.readthedocs.io/en/stable/interfaces.html
   
