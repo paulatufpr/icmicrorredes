@@ -10,9 +10,9 @@ pip install python-can
 pip install sqlite3 # não precisei rodar no linux porém talvez seja um problema no windows.
 
 #Inicialização do CAN no linux
-$ modprobe vcan0
-$ sudo ip link add dev vcan0 type vcan
-
+$ modprobe can0 # vcan0 se for rede virtual
+$ sudo ip link add dev can0 type can bitrate 500000 # vcan0 se for rede virtual e não precisa do bitrate
+$ sudo ip link set up can0 # vcan0 se for rede virtual
 ```
 
 
