@@ -24,12 +24,13 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 # transcrever_DB
 - É um script apenas para a leitura dos dados em formato CSV(facilidade de leitura no excel) para uso de quem necessitar dos dados.
 
-
+# server
+- Pode ser usado na maquina local para debugar qualquer tipo de problema com o leitor_BMS ou a comunicação mesmo.
   
   
   
 
 
 # Comentários adicionais: 
-- Nunca nomear qualquer codigo que envolve a biblioteca python-can com as letras "can" escritas dessa exata forma ou o codigo não rodará.
-
+- Nunca nomear qualquer codigo que envolve a biblioteca python-can com as letras "can" escritas dessa exata forma ou o codigo não rodará;
+- Os endereços ip e portas devem ser alterados para os endereços adequados do laboratório;
