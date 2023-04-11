@@ -22,10 +22,10 @@ além da instalação de drivers compatíveis com os leitores CAN do laborátór
 while True:
     mensagem = monitorar()
     if mensagem is not None:
-        msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id) #mais metodos que foram usados para testes, podem ser alterados a qualquer momento.
+        msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id) 
         print(msg_tuple)
-        enviar_tupla_via_tcp(msg_tuple)  # Envia a tupla via TCP
-  --->  time.sleep(1)   # tempo arbitário 
+        enviar_tupla_via_tcp(msg_tuple)
+  --->  time.sleep(1)   # ajustar tempo
 ```
 - Deve ser feita a configuração dos métodos que seram utilizados na variável mensagem.
 ```python
