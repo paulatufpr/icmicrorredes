@@ -17,7 +17,21 @@ além da instalação de drivers compatíveis com os leitores CAN do laborátór
   
 - É importante que o servidor TCP do CLP esteja ligado quando o código for rodar, caso contrário o próprio python irá considerar um erro no codigo no qual a conexão do socket não foi estabelecida, caso queiram contornar esse problema basta realizar expressões de try/error.
   
-- O tempo de sleep deve ser ajustado de acordo com a necessidade do CLP e deve ser feita a configuração dos métodos que seram utilizados na variável mensagem.
+- O tempo de sleep deve ser ajustado de acordo com a necessidade do CLP 
+```python
+while True:
+    mensagem = monitorar()
+    if mensagem is not None:
+        msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id) #mais metodos que foram usados para testes, podem ser alterados a qualquer momento.
+        print(msg_tuple)
+        enviar_tupla_via_tcp(msg_tuple)  # Envia a tupla via TCP
+  --->  time.sleep(1)   # tempo arbitário 
+```
+- Deve ser feita a configuração dos métodos que seram utilizados na variável mensagem.
+```python
+msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id)
+```
+
   Segue a documentação dos métodos da biblioteca python-can: https://python-can.readthedocs.io/en/stable/message.html
   
  
