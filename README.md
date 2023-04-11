@@ -3,14 +3,14 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 
 # À utilização dos scripts feitos:
 
-# Dependencias
+## Dependencias
 ```bash
 pip install python-can
 pip install sqlite3 # não precisei rodar no linux porém talvez seja um problema no windows.
 ```
 
 
-# leitor_BMS
+## leitor_BMS
 -  Está bem comentado, apenas o que falta para implementação é o ajuste ao inves de usar o socketCAN o programa será rodado em uma maquina windows o que envolve mudar os parametros na variavel 
 ```python
 b1 = can.Bus(channel='vcan0', interface='socketcan')
@@ -43,21 +43,21 @@ msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id)
 - Segue a documentação dos métodos da biblioteca python-can: https://python-can.readthedocs.io/en/stable/message.html
   
  
-# db_BMS
+## db_BMS
 - Roda uma instancia de uma base de dados extremamente leve que não precisa de configuração nem instalação de programas. O tempo de amostra pode ser ajustado novamente pelo sleep no loop principal. O codigo foi feito sem muito pensamento até pela falta de tempo então se possível no futuro fazer algo mais robusto.
   
 
-# transcrever_DB
+## transcrever_DB
 - É um script apenas para a leitura dos dados em formato CSV(facilidade de leitura no excel) para uso de quem necessitar dos dados.
 
-# server
+## server
 - Pode ser usado na maquina local para debugar qualquer tipo de problema com o leitor_BMS ou a comunicação mesmo.
   
   
   
 
 
-# Comentários adicionais: 
+## Comentários adicionais: 
 - Nunca nomear qualquer codigo que envolve a biblioteca python-can com as letras "can" escritas dessa exata forma ou o codigo não rodará;
 - Os endereços ip e portas devem ser alterados para os endereços adequados do laboratório;
 - Lembrar que o código foi desenvolvido em ambiente linux e portanto poderão ocorrer problemas caso apenas rodem os scripts em uma maquina windows.
