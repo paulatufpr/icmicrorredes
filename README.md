@@ -40,7 +40,7 @@ while True:
 msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id)
 ```
 
-  Segue a documentação dos métodos da biblioteca python-can: https://python-can.readthedocs.io/en/stable/message.html
+- Segue a documentação dos métodos da biblioteca python-can: https://python-can.readthedocs.io/en/stable/message.html
   
  
 # db_BMS
