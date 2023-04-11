@@ -21,7 +21,7 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 - Roda uma instancia de uma base de dados extremamente leve que não precisa de configuração nem instalação de programas. O tempo de amostra pode ser ajustado novamente pelo sleep no loop principal. O codigo foi feito sem muito pensamento até pela falta de tempo então se possível no futuro fazer algo mais robusto.
   
 
-# transcrever_db
+# transcrever_DB
 - É um script apenas para a leitura dos dados em formato CSV(facilidade de leitura no excel) para uso de quem necessitar dos dados.
 
 
