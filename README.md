@@ -34,3 +34,4 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 # Comentários adicionais: 
 - Nunca nomear qualquer codigo que envolve a biblioteca python-can com as letras "can" escritas dessa exata forma ou o codigo não rodará;
 - Os endereços ip e portas devem ser alterados para os endereços adequados do laboratório;
+- Lembrar que o código foi desenvolvido em ambiente linux e portanto poderão ocorrer problemas caso apenas rodem os scripts em uma maquina windows.
