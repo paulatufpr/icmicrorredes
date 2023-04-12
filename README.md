@@ -4,7 +4,7 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 # À utilização dos scripts feitos:
 
 ## Dependencias
-- Alguns scripts bash foram criados caso seja do interesse o uso dos scripts em ambiente linux, a inicialização não precisa ser feita manualmente apenas rodar o script desejado(com hardware real ou simulado), chegar dependencias_real.sh e dependencias_sim.sh
+- Alguns scripts bash foram criados caso seja do interesse o uso dos scripts em ambiente linux, a inicialização não precisa ser feita manualmente apenas rodar o script desejado(com hardware real ou simulado), checar dependencias_real.sh e dependencias_sim.sh
 ```bash
 Python 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] on linux
 pip install python-can
@@ -21,6 +21,7 @@ $ cangen vcan0 # caso precise gerar trafego aleatório em interface virtual(depe
 
 
 ## bms_microrredes
+- Se utilizado em ambiente linux pode ser rodado completamente pelo script run.sh.
 - Agora arquivo principal compreendendo os 3 que eram separados, ficou melhor rodar apenas um processo e mais facil de mata-lo caso preciso.
 
 -  Está bem comentado, apenas o que falta para implementação é o ajuste ao inves de usar o socketCAN o programa será rodado em uma maquina windows o que envolve mudar os parametros na variavel 
