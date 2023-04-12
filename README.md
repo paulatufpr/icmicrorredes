@@ -8,11 +8,14 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 Python 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] on linux
 pip install python-can
 pip install sqlite3 # não precisei rodar no linux porém talvez seja um problema no windows.
+sudo apt install can-utils # para interface tanto virtual como geração de dados e sniffing
 
 #Inicialização do CAN no linux
+
 $ modprobe can0 # vcan0 se for rede virtual
 $ sudo ip link add dev can0 type can bitrate 500000 # vcan0 se for rede virtual e não precisa do bitrate
 $ sudo ip link set up can0 # vcan0 se for rede virtual
+$ cangen vcan0 # caso precise gerar trafego aleatório em interface virtual(depende do pacote can-utils)
 ```
 
 
