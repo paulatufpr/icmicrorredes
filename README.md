@@ -4,6 +4,7 @@ O desenvolvimento sera dividido em duas frentes: python para ser usado enquanto 
 # À utilização dos scripts feitos:
 
 ## Dependencias
+- Alguns scripts bash foram criados caso seja do interesse o uso dos scripts em ambiente linux, a inicialização não precisa ser feita manualmente apenas rodar o script desejado(com hardware real ou simulado), chegar dependencias_real.sh e dependencias_sim.sh
 ```bash
 Python 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] on linux
 pip install python-can
@@ -19,7 +20,9 @@ $ cangen vcan0 # caso precise gerar trafego aleatório em interface virtual(depe
 ```
 
 
-## leitor_BMS
+## bms_microrredes
+- Agora arquivo principal compreendendo os 3 que eram separados, ficou melhor rodar apenas um processo e mais facil de mata-lo caso preciso.
+
 -  Está bem comentado, apenas o que falta para implementação é o ajuste ao inves de usar o socketCAN o programa será rodado em uma maquina windows o que envolve mudar os parametros na variavel 
 ```python
 b1 = can.Bus(channel='vcan0', interface='socketcan')
@@ -28,10 +31,11 @@ b1 = can.Bus(channel='vcan0', interface='socketcan')
 
 - Mais sobre esses drivers e parametros na documentação do python-can(recomendo tentativa de uso do peak-can pois temos esse no laboratório e os drivers são oficiais diferentemente da gambiarra que é necessária para usar o CANdapter): https://python-can.readthedocs.io/en/stable/interfaces.html
   
-- É importante que o servidor TCP do CLP esteja ligado quando o código for rodar, caso contrário o próprio python irá considerar um erro no codigo no qual a conexão do socket não foi estabelecida, caso queiram contornar esse problema basta realizar expressões de try/error.
-```bash
-s.connect((HOST, PORT))  # Conecta ao servidor
-ConnectionRefusedError: [Errno 111] Connection refused
+- Agora o socet TCP lida com o fato do servidor externo não estar ligado e trava o processo até que a conexão seja realizada novamente;
+
+```bash 
+Erro de conexão: [Errno 111] Connection refused
+Tentando novamente em 1 segundo...
 ```
 
 - O tempo de sleep deve ser ajustado de acordo com a necessidade do CLP 
@@ -41,9 +45,11 @@ while True:
     if mensagem is not None:
         msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id) 
         print(msg_tuple)
-        enviar_tupla_via_tcp(msg_tuple)
-  --->  time.sleep(1)   # ajustar tempo
+        salvar_tupla_no_banco_de_dados(msg_tuple)  
+        enviar_tupla_via_tcp(msg_tuple)  
+-->#time.sleep(1)   # tempo arbitário 
 ```
+
 - Deve ser feita a configuração dos métodos que seram utilizados na variável mensagem.
 ```python
 msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id)
@@ -53,6 +59,8 @@ msg_tuple = (mensagem.timestamp, mensagem.data.hex(), mensagem.arbitration_id)
   
  
 ## db_BMS
+- Foi implementado por meio da função salvar_tupla_no_banco_de_dados no bms_microrredes.
+
 - Roda uma instancia de uma base de dados extremamente leve que não precisa de configuração nem instalação de programas. O tempo de amostra pode ser ajustado novamente pelo sleep no loop principal. O codigo foi feito sem muito pensamento até pela falta de tempo então se possível no futuro fazer algo mais robusto.
   
 
